@@ -17,7 +17,7 @@ def home_view(request):
     skyblue = Color(name="skyblue", red=135, green=206, blue=250)
 
     params = {
-        "name": "stranger",
+        "name": "Toby",
         "color": skyblue,
     }
     
@@ -52,3 +52,7 @@ class NewColorView(CreateView):
     form_class = ColorForm
     template_name = "color_app/color_form.html"
     success_url = reverse_lazy("color_app:color_list")
+
+class HomeView(ListView):
+    model = Color
+    template_name = "color_app/index.html"
