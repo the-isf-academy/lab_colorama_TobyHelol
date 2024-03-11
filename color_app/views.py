@@ -45,14 +45,10 @@ def random_color_view(request):
 class ColorListView(ListView):
     model = Color
     template_name = "color_app/color_list.html"
-    queryset = Color.objects.order_by("name")
+    queryset = Color.objects.order_by("red")
 
 class NewColorView(CreateView):
     model = Color
     form_class = ColorForm
     template_name = "color_app/color_form.html"
     success_url = reverse_lazy("color_app:color_list")
-
-class HomeView(ListView):
-    model = Color
-    template_name = "color_app/index.html"

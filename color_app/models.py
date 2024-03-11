@@ -37,18 +37,27 @@ class Color(models.Model):
         "Adjust the hue of the color by `delta`."
         h, s, v  = self.to_hsv()
         r, g, b = hsv_to_rgb(h + delta % 1, s, v)
+        self.red=int(r*255)
+        self.green=int(g*255)
+        self.blue=int(b*255)
         return Color(name=name, red=int(r*255), green=int(g*255), blue=int(b*255))
 
     def adjust_saturation(self, delta, name=''):
         "Adjust the saturation of the color by `delta`."
         h, s, v  = self.to_hsv()
         r, g, b = hsv_to_rgb(h, clamp(s + delta, 0, 1), v)
+        self.red=int(r*255)
+        self.green=int(g*255)
+        self.blue=int(b*255)
         return Color(name=name, red=int(r*255), green=int(g*255), blue=int(b*255))
 
     def adjust_value(self, delta, name=''):
         "Adjust the value of the color by `delta`."
         h, s, v  = self.to_hsv()
         r, g, b = hsv_to_rgb(h, s, clamp(v + delta, 0, 1))
+        self.red=int(r*255)
+        self.green=int(g*255)
+        self.blue=int(b*255)
         return Color(name=name, red=int(r*255), green=int(g*255), blue=int(b*255))
 
     def get_absolute_url(self):
