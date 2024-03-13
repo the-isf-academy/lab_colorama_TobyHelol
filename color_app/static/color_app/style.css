@@ -25,10 +25,14 @@ svg {
 	margin: 0 auto;
 }
 .swatches {
-  display: flex;
+  	display: flex;
 	flex-wrap: wrap;
 	margin-top: 28px;
 }
 .swatch {
   margin-top: -28px;
+}
+
+#link a{
+	text-align: center;
 }
